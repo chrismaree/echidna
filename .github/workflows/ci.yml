@@ -44,6 +44,7 @@ jobs:
       - name: Build Libraries
         run: |
           .github/scripts/install-libsecp256k1.sh
+          .github/scripts/install-libff.sh
 
       - name: Build
         run: |
