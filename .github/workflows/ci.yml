@@ -20,6 +20,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Stack
         uses: mstksg/setup-stack@v1
+      - name: Build
+        run: |
+          set -ex
+          stack build
+          set +ex
 #  tests:
 #    runs-on: ${{ matrix.os }}
 #    strategy:
