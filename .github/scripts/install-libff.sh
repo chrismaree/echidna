@@ -3,7 +3,7 @@
 set -eux
 
 if [ "$HOST_OS" = "Linux" ]; then
-  EXT=".so"
+  EXT=".a"
 elif [ "$HOST_OS" = "macOS" ]; then
   EXT=".dylib"
 else
