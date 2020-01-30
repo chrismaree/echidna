@@ -17,9 +17,22 @@ jobs:
           - ubuntu-latest
           - macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Setup Stack
         uses: mstksg/setup-stack@v1
+
+      - name: Cache libraries
+        id: cache-libraries
+        uses: actions/cache@v1
+        with:
+          path: .local/lib/
+          key: ${{ runner.os }}-libs
+
+      - name: Build libsecp256k1
+        run: .github/scripts/install-libsecp256k1
+
       - name: Build
         run: |
           set -ex
