@@ -45,6 +45,8 @@ jobs:
         run: |
           .github/scripts/install-libsecp256k1.sh
           .github/scripts/install-libff.sh
+        env:
+          HOST_OS: ${{ runner.os }}
 
       - name: Build
         run: |
