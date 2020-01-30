@@ -38,13 +38,15 @@ jobs:
         id: cache-libs
         uses: actions/cache@v1
         with:
-          path: ${{ env.HOME }}/.local/lib
+          path: .github-cache
           key: ${{ runner.os }}-libs
 
       - name: Build Libraries
         run: |
+          .github/scripts/get-cache.sh
           .github/scripts/install-libsecp256k1.sh
           .github/scripts/install-libff.sh
+          .github/scripts/put-cache.sh
         env:
           HOST_OS: ${{ runner.os }}
 

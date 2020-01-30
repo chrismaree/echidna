@@ -2,14 +2,7 @@
 
 set -eux
 
-if [ "$HOST_OS" = "Linux" ]; then
-  EXT=".a"
-elif [ "$HOST_OS" = "macOS" ]; then
-  EXT=".dylib"
-else
-  echo "unrecognized host"
-  exit 1
-fi
+source .github/scripts/host.sh
 
 if [ -f $HOME/.local/libff"$EXT" ]; then
   echo "libff exists, exiting..."
