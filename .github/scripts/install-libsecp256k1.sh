@@ -13,4 +13,4 @@ cd "secp256k1-$gitRef"
 # enable pic so static library can link against dynamic correctly
 ./configure --prefix=$HOME/.local --enable-module-recovery --with-pic
 
-sudo make install
+make install
