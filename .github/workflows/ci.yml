@@ -31,7 +31,7 @@ jobs:
           key: ${{ runner.os }}-libs
 
       - name: Build libsecp256k1
-        run: .github/scripts/install-libsecp256k1
+        run: .github/scripts/install-libsecp256k1.sh
 
       - name: Build
         run: |
