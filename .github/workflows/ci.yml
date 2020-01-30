@@ -18,15 +18,15 @@ jobs:
           - macOS-latest
         include:
           - os: ubuntu-latest
-            libdir: ../../../.local/lib
+            apt-get: autoconf automake libtool
           - os: macOS-latest
-            libdir: ../../../../../.local/lib
+            brew: autoconf automake libtool
     steps:
       - name: Get Packages
         uses: mstksg/get-package@v1
         with:
-          brew: autoconf automake libtool
-          apt-get: autoconf automake libtool
+          brew: ${{ matrix.brew }}
+          apt-get: ${{ matrix.apt-get }}
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
         id: cache-libs
         uses: actions/cache@v1
         with:
-          path: ${{ matrix.libdir }}
+          path: ${{ env.HOME }}/.local/lib
           key: ${{ runner.os }}-libs
 
       - name: Build Libraries
