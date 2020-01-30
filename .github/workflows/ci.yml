@@ -33,7 +33,7 @@ jobs:
         id: cache-libsecp256k1
         uses: actions/cache@v1
         with:
-          path: .local/lib/libsecp256k1.a
+          path: $HOME/.local/lib/libsecp256k1.a
           key: ${{ runner.os }}-libsecp256k1
 
       - name: Build libsecp256k1
