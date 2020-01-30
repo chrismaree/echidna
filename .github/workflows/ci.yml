@@ -18,7 +18,7 @@ jobs:
           - macos-latest
     steps:
       - name: Get Packages
-        uses: mstksg@get-package@v1
+        uses: mstksg/get-package@v1
         with:
           brew: autoconf automake libtool
           apt-get: autoconf automake libtool
