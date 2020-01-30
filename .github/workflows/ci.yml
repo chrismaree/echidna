@@ -16,6 +16,11 @@ jobs:
         os:
           - ubuntu-latest
           - macOS-latest
+        include:
+          - os: ubuntu-latest
+            libdir: ../../../.local/lib
+          - os: macOS-latest
+            libdir: ../../../../../.local/lib
     steps:
       - name: Get Packages
         uses: mstksg/get-package@v1
@@ -33,11 +38,10 @@ jobs:
         id: cache-libs
         uses: actions/cache@v1
         with:
-          path: $HOME/.local/lib
+          path: ${{ matrix.libdir }}
           key: ${{ runner.os }}-libs
 
       - name: Build Libraries
-        if: steps.cache-libs.outputs.cache-hit != 'true'
         run: |
           .github/scripts/install-libsecp256k1.sh
 
