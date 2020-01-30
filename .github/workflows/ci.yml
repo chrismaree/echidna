@@ -17,6 +17,12 @@ jobs:
           - ubuntu-latest
           - macos-latest
     steps:
+      - name: Get Packages
+        uses: mstksg@get-package@v1
+        with:
+          brew: autoconf automake libtool
+          apt-get: autoconf automake libtool
+
       - name: Checkout
         uses: actions/checkout@v2
 
