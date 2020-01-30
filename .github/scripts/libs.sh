@@ -1,3 +1,3 @@
 #! /bin/sh
 
-LIBS=("libsecp256.a" "libff$EXT")
+LIBS=("libsecp256k1.a" "libff$EXT")
