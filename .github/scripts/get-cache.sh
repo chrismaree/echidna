@@ -3,9 +3,13 @@
 set -ex
 
 source .github/scripts/host.sh
+source .github/scripts/libs.sh
 
-mkdir .github-cache
+mkdir -p .github-cache
 mkdir -p $HOME/.local/lib
 
-mv .github-cache/libsecp256k1.a $HOME/.local/lib
-mv .github-cache/libff"$EXT" $HOME/.local/lib
+for lib in $LIBS; do
+  if [ -f .github-cache/$lib ]; then
+    mv .github-cache/$lib $HOME/.local/lib
+  fi
+done
