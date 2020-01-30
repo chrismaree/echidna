@@ -29,16 +29,17 @@ jobs:
       - name: Setup Stack
         uses: mstksg/setup-stack@v1
 
-      - name: Cache libsecp256k1
-        id: cache-libsecp256k1
+      - name: Cache Libraries
+        id: cache-libs
         uses: actions/cache@v1
         with:
-          path: $HOME/.local/lib/libsecp256k1.a
-          key: ${{ runner.os }}-libsecp256k1
+          path: $HOME/.local/lib
+          key: ${{ runner.os }}-libs
 
-      - name: Build libsecp256k1
-        if: steps.cache-libsecp256k1.outputs.cache-hit != 'true'
-        run: .github/scripts/install-libsecp256k1.sh
+      - name: Build Libraries
+        if: steps.cache-libs.outputs.cache-hit != 'true'
+        run: |
+          .github/scripts/install-libsecp256k1.sh
 
       - name: Build
         run: |
