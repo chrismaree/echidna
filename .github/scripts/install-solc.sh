@@ -4,7 +4,11 @@
 
 set -eux
 
-mkdir -p ~/.local/bin;
+if [ -f $HOME/.local/bin/solc-0.4.25 ] && [ -f $HOME/.local/bin/solc-0.5.7 ]; then
+  exit 0
+fi
+
+mkdir -p $HOME/.local/bin;
 
 travis_retry() {
   cmd=$*
@@ -15,10 +19,10 @@ fetch_solc_linux() {
   rm -Rf solc-static-linux;
   wget https://github.com/ethereum/solidity/releases/download/v0.4.25/solc-static-linux;
   chmod +x solc-static-linux;
-  mv solc-static-linux ~/.local/bin/solc-0.4.25;
+  mv solc-static-linux $HOME/.local/bin/solc-0.4.25;
   wget https://github.com/ethereum/solidity/releases/download/v0.5.7/solc-static-linux;
   chmod +x solc-static-linux;
-  mv solc-static-linux ~/.local/bin/solc-0.5.7;
+  mv solc-static-linux $HOME/.local/bin/solc-0.5.7;
 }
 
 if [ "$HOST_OS" = "Linux" ]; then
