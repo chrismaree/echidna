@@ -39,7 +39,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: .github-cache
-          key: ${{ runner.os }}-libs
+          key: ${{ runner.os }}-libs-aslkdjfaslkdfjsalkjflasdkjfalsdkjf
 
       - name: Build Libraries
         run: |
