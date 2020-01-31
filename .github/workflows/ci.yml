@@ -63,7 +63,7 @@ jobs:
 
       - name: Build
         run: |
-          true
+          stack build --ghc-options '-L ~/.local/lib'
 #  tests:
 #    runs-on: ${{ matrix.os }}
 #    strategy:
