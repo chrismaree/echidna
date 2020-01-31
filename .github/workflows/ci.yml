@@ -19,10 +19,8 @@ jobs:
         include:
           - os: ubuntu-latest
             apt-get: autoconf automake libtool
-            home: "/home/runner"
           - os: macOS-latest
             brew: autoconf automake libtool
-            home: "/Users/runner"
     steps:
       - name: Get Packages
         uses: mstksg/get-package@v1
@@ -40,13 +38,13 @@ jobs:
         id: cache-bins
         uses: actions/cache@v1
         with:
-          path: ${{ matrix.home }}/.local/bin
+          path: ~/.local/bin
           key: ${{ runner.os }}-bins-owginewoignweoignwoib
       - name: Cache Libraries
         id: cache-libs
         uses: actions/cache@v1
         with:
-          path: ${{ matrix.home }}/.local/lib
+          path: ~/.local/lib
           key: ${{ runner.os }}-libs-oighwoeighwoigweoign
 
       - name: Build Binaries
