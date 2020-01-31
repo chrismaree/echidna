@@ -38,8 +38,8 @@ jobs:
         id: cache-libs
         uses: actions/cache@v1
         with:
-          path: ${{ env.HOME }}/.local/lib
-          key: ${{ runner.os }}-libs-alksjgadskjgodsigoaighoaiejgaesojgi
+          path: /home/runner/.local/lib
+          key: ${{ runner.os }}-libs-askdlfjalgkhwoighwoeighweiog
 
       - name: Build Libraries
         run: |
