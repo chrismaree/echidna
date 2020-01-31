@@ -35,7 +35,7 @@ jobs:
         uses: mstksg/setup-stack@v1
 
       - name: Cache Binaries
-        id: cache-libs
+        id: cache-bins
         uses: actions/cache@v1
         with:
           path: /home/runner/.local/bin
