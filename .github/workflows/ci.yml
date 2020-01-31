@@ -46,9 +46,16 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.local/lib
-          key: ${{ runner.os }}-libs-oighwoeighwoigweoign
+          key: ${{ runner.os }}-libs-aoigneowignwoignweoin
 
-      - name: Cache Libraries
+      - name: Cache Includes
+        id: cache-includes
+        uses: actions/cache@v1
+        with:
+          path: ~/.local/include
+          key: ${{ runner.os }}-includes
+
+      - name: Cache GHC
         id: cache-ghc
         uses: actions/cache@v1
         with:
@@ -86,7 +93,7 @@ jobs:
       - name: Build
         run: |
           # patch stack.yaml .github/stack.yaml.patch
-          stack build --extra-lib-dirs=$HOME/.local/lib
+          stack build --extra-include-dirs=$HOME/.local/include --extra-lib-dirs=$HOME/.local/lib
 #  tests:
 #    runs-on: ${{ matrix.os }}
 #    strategy:
