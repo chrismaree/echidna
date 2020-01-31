@@ -40,12 +40,34 @@ jobs:
         with:
           path: ~/.local/bin
           key: ${{ runner.os }}-bins-asdfoiergoweing
+
       - name: Cache Libraries
         id: cache-libs
         uses: actions/cache@v1
         with:
           path: ~/.local/lib
           key: ${{ runner.os }}-libs-oighwoeighwoigweoign
+
+      - name: Cache Libraries
+        id: cache-ghc
+        uses: actions/cache@v1
+        with:
+          path: ~/.stack/programs
+          key: ${{ runner.os }}-ghc
+
+      - name: Cache Index
+        id: cache-index
+        uses: actions/cache@v1
+        with:
+          path: ~/.stack/indices
+          key: ${{ runner.os }}-index
+
+      - name: Cache Snapshots
+        id: cache-snapshots
+        uses: actions/cache@v1
+        with:
+          path: ~/.stack/snapshots
+          key: ${{ runner.os }}-snapshots
 
       - name: Build Binaries
         run: |
@@ -63,7 +85,8 @@ jobs:
 
       - name: Build
         run: |
-          patch stack.yaml .github/stack.yaml.patch
+          export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.local/lib"
+          # patch stack.yaml .github/stack.yaml.patch
           stack build
 #  tests:
 #    runs-on: ${{ matrix.os }}
