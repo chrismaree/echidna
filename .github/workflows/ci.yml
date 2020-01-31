@@ -39,7 +39,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.local/bin
-          key: ${{ runner.os }}-bins-owginewoignweoignwoib
+          key: ${{ runner.os }}-bins-asdfoiergoweing
       - name: Cache Libraries
         id: cache-libs
         uses: actions/cache@v1
