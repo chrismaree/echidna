@@ -2,7 +2,7 @@
 
 set -eux
 
-if [ -f $HOME/.local/libsecp256k1.a ]; then
+if [ -f $HOME/.local/lib/libsecp256k1.a ]; then
   echo "libsecp256k1 exists, exiting..."
   exit 0
 fi

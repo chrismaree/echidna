@@ -4,7 +4,7 @@ set -eux
 
 source .github/scripts/host.sh
 
-if [ -f $HOME/.local/libff"$EXT" ]; then
+if [ -f $HOME/.local/lib/libff"$EXT" ]; then
   echo "libff exists, exiting..."
   exit 0
 fi
