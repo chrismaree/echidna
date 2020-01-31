@@ -39,7 +39,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: /home/runner/.local/bin
-          key: ${{ runner.os }}-bins
+          key: ${{ runner.os }}-bins-aslkdfjsalkdgjldkgj
 
       - name: Cache Libraries
         id: cache-libs
@@ -51,6 +51,7 @@ jobs:
       - name: Build Libraries
         run: |
           .github/scripts/install-ghr.sh
+          .github/scripts/install-solc.sh
           .github/scripts/install-libsecp256k1.sh
           .github/scripts/install-libff.sh
         env:
