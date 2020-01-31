@@ -53,6 +53,8 @@ jobs:
         run: |
           .github/scripts/install-ghr.sh
           .github/scripts/install-solc.sh
+        env:
+          HOST_OS: ${{ runner.os }}
 
       - name: Build Libraries
         run: |
